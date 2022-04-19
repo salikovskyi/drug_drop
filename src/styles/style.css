@@ -1,0 +1,27 @@
+body {
+    background-color: orange;
+    padding-top: 30px;
+}
+
+.groups {
+    display: flex;
+    justify-content: space-around;
+}
+
+.group {
+    background-color: #fff;
+    width: 400px;
+    height: 500px;
+}
+
+.title {
+    text-align: center;
+}
+
+.items {
+    border: 2px solid black;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
