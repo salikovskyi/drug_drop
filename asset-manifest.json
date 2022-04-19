@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tets-for-misha/static/css/main.0efbcf37.css",
+    "main.js": "/tets-for-misha/static/js/main.ebc093de.js",
+    "index.html": "/tets-for-misha/index.html",
+    "main.0efbcf37.css.map": "/tets-for-misha/static/css/main.0efbcf37.css.map",
+    "main.ebc093de.js.map": "/tets-for-misha/static/js/main.ebc093de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0efbcf37.css",
+    "static/js/main.ebc093de.js"
+  ]
+}
