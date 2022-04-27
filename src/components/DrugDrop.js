@@ -1,19 +1,30 @@
-import React, { useState } from "react";
-import '../styles/style.css'
-
+import React, { useEffect, useState } from "react";
+import "../styles/style.css";
 
 export default function DrugDrop() {
-  const groups = ["LIST1", "LIST2",];
+  const groups = [1, 2  ];
   const initialItems = [
-    { id: 1, group: "LIST1", value: "Item1" },
-    { id: 2, group: "LIST1", value: "Item2" },
-    { id: 3, group: "LIST1", value: "Item3" },
-    { id: 4, group: "LIST2", value: "Item4" },
-    { id: 5, group: "LIST2", value: "Item5" },
-    { id: 6, group: "LIST2", value: "Item6" },
+    { id: 1, group: 1, value: "Item1" },
+    { id: 2, group: 1, value: "Item2" },
+    { id: 3, group: 1, value: "Item3" },
+    { id: 4, group: 2, value: "Item4" },
+    { id: 5, group: 2, value: "Item5" },
+    { id: 6, group: 2, value: "Item6" },
   ];
+
   const [items, setItems] = useState(initialItems);
   const [dragData, setDragData] = useState({});
+
+  const addItem = (key) => {
+    const newItem = {
+      id: items.length + 1,
+      group: key,
+      value: `Item${items.length + 1}`,
+    };
+    const newItems = [...items, newItem];
+    setItems(newItems);
+  };
+
   const handleDragStart = (e, id, group) => {
     setDragData({ id: id, initialGroup: group });
   };
@@ -38,12 +49,12 @@ export default function DrugDrop() {
       <div className="groups">
         {groups.map((group) => (
           <div
-            className='group'
+            className="group"
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, group)}
             key={group}
           >
-            <h1 className="title">{group}</h1>
+            <h1 className="title">LIST {group}</h1>
             <div>
               {items
                 .filter((item) => item.group === group)
@@ -51,7 +62,7 @@ export default function DrugDrop() {
                   <div
                     key={item.id}
                     id={item.id}
-                    className='items'
+                    className="items"
                     draggable
                     onDragStart={(e) => handleDragStart(e, item.id, group)}
                   >
@@ -59,6 +70,7 @@ export default function DrugDrop() {
                   </div>
                 ))}
             </div>
+            <button className="addBtn" onClick={() => addItem(group)}>Добавить</button>
           </div>
         ))}
       </div>
